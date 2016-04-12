@@ -1,3 +1,5 @@
+//EJECUTAR EN CONSOLA PARA VER LOS RESULTADOS
+
 var turno = 1;
 
 
@@ -35,3 +37,5 @@ if(pikachu.vida >= 0){
 }else{
    jigglypuff.win();
 }
+
+//VAMOS EN VIDEO CONDICIONALES Y OPERADORES
