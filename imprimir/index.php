@@ -1,14 +1,4 @@
-<?php
-	ini_set("session.cookie_lifetime","7200");
-	ini_set("session.gc_maxlifetime","7200");
-	session_start();	
-	if($_SESSION['miSession']['permisos']==2 or $_SESSION['miSession']['permisos']==3){
-		require_once("../../conexion.php");
-		$id_usuario =  $_SESSION['miSession']['id_usuario'];
-		$sql="select * from usuarios where id_usuario='".$_SESSION['miSession']['id_usuario']."'"; 
-		$res = mysql_query($sql,$con);	
-		if($reg = mysql_fetch_array($res)){	
-?>
+
 
 
 <!DOCTYPE html>
@@ -206,21 +196,10 @@
             <!-- end orders table -->            
         </div>
     </div>
-    <!-- end main container -->	
-	<?php
-		}
-	?>
+
 	<!-- scripts -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/theme.js"></script>
 </body>
 </html>
-<?php
-	}else{
-		echo "<script type='text/javascript'>
-				alert('Usted no esta logueado, no tiene permisos o ingreso mal su password. Por favor ingrese de nuevo al sistema');
-				window.location='../usuarios/login';
-			  </script>";
-	}	
-?>
