@@ -1,2 +1,148 @@
+<html>
+	<head>
+		
+	</head>
+	<body>
+		<table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">
+                                    ID Pedido
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Estado del Pago
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Estado de la Entrega
+                                </th>								
+                                <th class="col-md-1">
+                                    <span class="line"></span>
+                                    Fecha Pedido
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Fecha Pago
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Fecha Entrega
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Hora de Entrega
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Nombre del Cliente
+                                </th>
+                                <th class="col-md-1">
+                                    <span class="line"></span>
+                                    Nombre del Producto
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Ciudad de Entrega
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Metodo de Pago
+                                </th>
+								<th class="col-md-1">
+                                    <span class="line"></span>
+                                    Total
+                                </th>
+                                <th class="col-md-1">
+                                    <span class="line"></span>
+                                    Costo de Envio
+                                </th>								
+                            </tr>
+                        </thead>
+                        <tbody>
+							<?php
+								$sql2 = "select * from pedidos where ciudad_de_entrega='Bogota' order by id_pedidos desc";   	
+								$res2 = mysql_query($sql2,$con);
+								while($reg2 = mysql_fetch_array($res2)){					
+							?>
+                            <!-- row -->
+                            <tr class="first">
+                                <td>
+                                    <a href="detalle-del-pedido.php?id_pedidos=<?php echo $reg2["id_pedidos"];?>">#<?php echo $reg2["id_pedidos"];?></a>
+                                </td>
+								<td>
+									<?php 
+										if($reg2["estado_pedido"]=='1'){
+											?>
+											 <span class="label label-warning">Pendiente</span>
+									<?php	}else if($reg2["estado_pedido"]=='5'){
+											?>
+											 <span class="label label-success">Pagado</span>
+									<?php	}else if($reg2["estado_pedido"]=='15'){
+											?>
+											 <span class="label label-info">Confirmado</span>
+									<?php	}else{
+											?>
+											 <span class="label label-danger">Abortado</span>
+									<?php	
+												}									
+									?>
+                                </td>
+								<td>
+									<?php 
+										if($reg2["estado_entrega"]=='1'){
+											?>
+											 <span class="label label-warning">Pendiente</span>
+									<?php	}else if($reg2["estado_entrega"]=='2'){
+											?>
+											 <span class="label label-success">Despachado</span>
+									<?php	}else if($reg2["estado_entrega"]=='3'){
+											?>
+											 <span class="label label-info">Entregado</span>
+									<?php	}else{
+											?>
+											 <span class="label label-danger">Devuelto</span>
+									<?php	
+												}									
+									?>
+                                </td>
+                                <td>								
+                                    <?php echo $reg2["fecha_de_pedido"];?>
+                                </td>
+								<td>
+                                    <?php echo $reg2["fecha_de_pago"];?> 
+                                </td>
+								<td>
+                                    <?php echo $reg2["mes_de_entrega"];?>/<?php echo $reg2["dia_de_entrega"];?>/<?php echo $reg2["ano_de_entrega"];?>
+                                </td>
+								<td>
+                                    <?php echo $reg2["hora_de_entrega"];?>
+                                </td>
+								<td>
+                                    <?php echo $reg2["nombre_usuario"];?>
+                                </td>
+								<td>
+                                    <?php echo $reg2["nombre_del_producto"];?>
+                                </td>
+                                <td>
+									<?php echo $reg2["ciudad_de_entrega"];?>
+                                </td>
+								<td>
+									<?php echo $reg2["metodo_pago"];?>
+                                </td>
+								<td>
+                                    <?php echo number_format($reg2["total_pedido"]);?>
+                                </td>
+                                <td>
+                                    <?php echo number_format($reg2["costo_envio"]);?>
+                                </td>
+								
+                            </tr>
+							<?php
+								}
+							?>
+                        </tbody>
+                    </table>
+	</body>
 
-hola mundo
+</html>
