@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jquery/jquery.js" ></script>
+		<script type="text/javascript">
+			var x;
+			x=$(document);
+			x.ready(resaltar);
+
+			function resaltar(){
+				var x;
+				x = $("#boton");
+				x.click(resaltame);
+			}
+
+			function resaltame(){
+				var x;
+				x = $(".primario");
+				x.css("background-color","yellow");
+			}
+		</script>
+
+	</head>
+	<body>
+		<input type="button" value="Muestrame los priarios" id="boton">
+		<span class="primario">Azul</span>
+		<span class="primario">Fucsia, Purpura,</span>
+		<span class="primario">Verde</span> 
+		<span class="primario">Blanco</span> 
+		<span class="primario">Negro</span>  
+	</body>
+</html>

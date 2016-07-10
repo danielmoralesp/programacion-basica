@@ -1,0 +1,7 @@
+{
+  "name": "tvify",
+  "descripcion": "web para seleccionar tus shows favoritos",
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}

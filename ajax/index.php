@@ -30,10 +30,10 @@
 		var url = "miscriptdeservidor.php?surname=" + apellido;
 
 		//pedimos a nuestro objeto XMLHTTPRequest que abra una conexion con el servidor
-		miPeticion.open("GET", url+ "&rand=" + miAleatorio, true);
+		miPeticion.open("GET", url+"&rand="+miAleatorio, true);
 
 		//Preparamos una funcion respuestaAjax() para ejecutarse cuando la respuesta haya llegado
-		miPeticion.onereadystatechange = respuestaAjax;
+		miPeticion.onreadystatechange = respuestaAjax;
 
 		//y finalmente enviamos la peticion
 		miPeticion.send(null);
@@ -46,14 +46,14 @@
 			//si la respuesta HTTP del servidor es "OK"
 			if(miPeticion.status == 200){
 				alert("El server dijo: " + miPeticion.responseText);
+				}
 			}else{
 				//crear un mensaje de error para cualquier otra respuesta HTTP del servidor
 				alert("Ha ocurrido un error: " + miPeticion.statusText);
 			}
 			
 		}
-			
-	}
+		
 
 
 
